@@ -3,7 +3,7 @@ import { IconClockHour3Filled, IconSnowflake, IconTemperatureSun } from "@tabler
 export const Recommendations = () => {
     return (
         <>
-            <h2 className="text-center md:text-7xl text-5xl font-caveat text-pink mb-10">Recomendaciones generales <br />para tus postres</h2>
+            <h2 id="recomendaciones" className="text-center md:text-7xl text-5xl font-caveat text-pink mb-10 scroll-mt-20">Recomendaciones generales <br />para tus postres</h2>
             <div className="relative max-w-6xl mx-auto bg-amber-100 grid grid-cols-1 md:grid-cols-3 gap-6">
                 <div className="grid place-items-center gap-2 rounded-3xl p-10 border-pink/30 bg-pink/5 border-1">
                     <IconTemperatureSun className="text-pink mb-2" height={30} width={30}/>

@@ -1,9 +1,14 @@
-import { Icon, IconCake, IconCalendarEvent, IconHelpCircle, IconInfoCircle, IconMail, IconMessage, IconPackage, IconUsersGroup } from "@tabler/icons-react";
+import { Icon, IconCake, IconMail, IconMap, IconUsersGroup } from "@tabler/icons-react";
 
 export interface NavItem {
   title: string;
   href: string;
   icon: Icon;
+}
+
+export interface otherLinks {
+  title: string;
+  href: string;
 }
 
 export const navItems: NavItem[] = [
@@ -15,7 +20,7 @@ export const navItems: NavItem[] = [
   {
     title: "Ubicación",
     href: "/locations",
-    icon: IconCalendarEvent,
+    icon: IconMap,
   },  
   {
     title: "Nosotros",
@@ -28,3 +33,10 @@ export const navItems: NavItem[] = [
     icon: IconMail,
   },
 ];
+
+export const otherLinks: otherLinks[] = [
+  { title: "Recomendaciones generales", href: "/products#recomendaciones" },
+  { title: "Trabaja con nosotros", href: "/contact" },
+  { title: "Blog", href: "/blog" },
+  { title: "Contacto", href: "/contact" },
+]

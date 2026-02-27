@@ -1,4 +1,4 @@
-import { navItems } from "@/data/navItems"
+import { navItems, otherLinks } from "@/data/navItems"
 import { IconCup } from "@tabler/icons-react"
 import Link from "next/link"
 import { SocialLinks } from "./ui/SocialLinks"
@@ -18,9 +18,10 @@ export const Footer = () => {
             </div>
             <span className="text-yellow mt-1 font-bold text-xl tracking-tight">ACME</span>
           </div>
-          <p className="text-yellow/60 text-sm max-w-xs sm:text-right leading-relaxed">
-            Providing reliable tech since 1992. <br className="hidden sm:block" />
-            Built with care, delivered with precision.
+          <p className="text-yellow text-sm max-w-xs sm:text-right leading-relaxed">
+            Endulzando momentos desde 2010. <br className="hidden sm:block"/>Hecho con amor, entregado con dedicación.
+            {/* Providing reliable tech since 1992. <br className="hidden sm:block" /> */}
+            {/* Built with care, delivered with precision. */}
           </p>
         </div>
 
@@ -61,12 +62,20 @@ export const Footer = () => {
           <div className="flex flex-col gap-3 col-span-2 sm:col-span-1">
             <span className="text-[10px] uppercase tracking-[0.2em] text-yellow/90 font-semibold">Empresa</span>
             <div className="flex flex-col gap-2">
-              {["Sobre nosotros", "Trabaja con nosotros", "Blog", "Contacto"].map((label, idx) => (
+              {
+                otherLinks.map((items, idx) => (
+                <Link key={idx} href={items.href} className="group flex items-center gap-2 text-sm text-yellow font-medium hover:text-yellow transition-colors duration-150">
+                  <span className="w-0 group-hover:w-2 h-px bg-yellow transition-all duration-200 rounded-full" />
+                  {items.title}
+                </Link>
+                ))
+              }
+              {/* {["Sobre nosotros", "Trabaja con nosotros", "Blog", "Contacto"].map((label, idx) => (
                 <Link key={idx} href="" className="group flex items-center gap-2 text-sm text-yellow font-medium hover:text-yellow transition-colors duration-150">
                   <span className="w-0 group-hover:w-2 h-px bg-yellow transition-all duration-200 rounded-full" />
                   {label}
                 </Link>
-              ))}
+              ))} */}
             </div>
           </div>
 
@@ -76,29 +85,29 @@ export const Footer = () => {
             <SocialLinks />
 
             {/* Newsletter mini */}
-            <div className="mt-2 flex flex-col gap-2">
+            {/* <div className="mt-2 flex flex-col gap-2">
               <span className="text-[10px] uppercase tracking-[0.2em] text-yellow/90 font-semibold">Newsletter</span>
               <div className="flex overflow-hidden rounded-full border border-yellow/30 focus-within:border-yellow transition-colors duration-200">
                 <input type="email" placeholder="tu@email.com" className="bg-transparent text-yellow placeholder-yellow/30 text-xs px-3 py-2 flex-1 outline-none min-w-0" />
                 <button className="bg-yellow text-pink text-xs font-semibold px-3 py-2 shrink-0 hover:bg-yellow/90 transition-colors duration-150">→</button>
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
 
         {/* Barra inferior */}
-        <div className="mt-10 pt-5 border-t border-yellow/20 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 text-[11px] text-yellow/40">
+        <div className="mt-10 pt-5 border-t border-yellow/20 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 text-[11px] text-yellow">
           <span>© {new Date().getFullYear()} ACME Industries Ltd. Todos los derechos reservados.</span>
           <div className="flex gap-4">
-            <Link href="" className="hover:text-yellow/70 transition-colors">
+            <Link href="/privacy" className="hover:text-yellow/70 text-yellow transition-colors">
               Privacidad
             </Link>
-            <Link href="" className="hover:text-yellow/70 transition-colors">
+            <Link href="/terms" className="hover:text-yellow/70 text-yellow transition-colors">
               Términos
             </Link>
-            <Link href="" className="hover:text-yellow/70 transition-colors">
+            {/* <Link href="" className="hover:text-yellow/70 transition-colors">
               Cookies
-            </Link>
+            </Link> */}
           </div>
         </div>
       </div>

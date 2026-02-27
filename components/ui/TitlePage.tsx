@@ -15,7 +15,7 @@ export const TitlePage = ({ title, subtitle }: TitleProps) => {
   }, [])
 
   return (
-    <section className="bg-pink w-full overflow-hidden h-80 py-20 pb-6 grid place-items-center px-10">
+    <section className="bg-pink w-full overflow-hidden min-h-80 py-20 pb-6 grid place-items-center px-10">
       <div className="flex flex-col gap-4">
         <h1
           className={`font-caveat xs:text-8xl text-7xl text-yellow text-center transition-all duration-700 ease-out ${

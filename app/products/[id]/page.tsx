@@ -5,6 +5,42 @@ import { Navbar } from "@/components/Navbar"
 import { Footer } from "@/components/Footer"
 import { BackButton } from "@/components/ui/BackButton"
 
+import type { Metadata } from "next"
+
+export async function generateMetadata(
+  { params }: { params: Promise<{ id: string }> }
+): Promise<Metadata> {
+  const { id } = await params
+  const product = products.find(p => p.id === Number(id))
+  if (!product) return {}
+
+  return {
+    title: `${product.name} — Tu Postería`,
+    metadataBase: new URL("https://cupcakedemo.netlify.app/"),
+    description: product.desc,
+    openGraph: {
+      title: product.name,
+      description: product.desc,
+      images: [
+        {
+          url: product.img,
+          width: 1200,
+          height: 630,
+          alt: product.name,
+        }
+      ],
+      type: "website",
+      locale: "es_MX",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: product.name,
+      description: product.desc,
+      images: [product.img],
+    },
+  }
+}
+
 export function generateStaticParams() {
   return products.map(p => ({ id: String(p.id) }))
 }

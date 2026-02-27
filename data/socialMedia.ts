@@ -9,17 +9,17 @@ export interface socialM {
 export const socialMedia: socialM[] = [
   {
     title: "Instagram",
-    href: "/products",
+    href: "https://www.instagram.com/tagblade/",
     icon: IconBrandInstagram,
   },
   {
     title: "Facebook",
-    href: "/about",
+    href: "https://www.instagram.com/tagblade/",
     icon: IconBrandFacebook,
   },  
   {
     title: "Tiktok",
-    href: "/testimonials",
+    href: "https://www.instagram.com/tagblade/",
     icon: IconBrandTiktok,
   },
 ];

@@ -1,7 +1,8 @@
 "use client"
 import { useState } from "react"
-import { IconBrandInstagram, IconBrandFacebook, IconBrandWhatsapp, IconSparkles } from "@tabler/icons-react"
+import { IconSparkles } from "@tabler/icons-react"
 import { SocialLinks } from "../ui/SocialLinks"
+import { contactData } from "@/data/contactData"
 
 export const ContactPage = () => {
   const [form, setForm] = useState({ name: "", email: "", phone: "", message: "" })
@@ -36,12 +37,27 @@ export const ContactPage = () => {
           <div className="relative z-10">
             <IconSparkles size={32} className="text-yellow mb-6" />
             <h2 className="font-caveat text-6xl text-yellow leading-tight mb-4">Hagamos algo dulce juntos</h2>
-            <p className="text-yellow/90 text-sm leading-relaxed">Cada detalle importa. Cuéntanos tu idea y nosotros la convertimos en algo memorable.</p>
+            <p className="text-yellow/90 text-sm leading-relaxed mb-2">Cada detalle importa. Cuéntanos tu idea y nosotros la convertimos en algo memorable.</p>
           </div>
 
           <div className="relative z-10 flex flex-col gap-6">
             <div className="h-px bg-white/10"></div>
-            <div className="flex flex-col gap-4 text-sm">
+            {contactData.map((info) => (
+              <div key={info.title} className="flex flex-col gap-2 text-sm">
+                {/* <p className="text-xs tracking-widest uppercase text-yellow/90">{info.title}</p> */}
+                {info.items.map((item) => {
+                  const href = item.href ?? (info.prefix ? `${info.prefix}${item.label}` : undefined)
+                  return href ? (
+                    <a key={item.label} href={href} target={item.href ? "_blank" : undefined} rel="noopener noreferrer" className="text-yellow hover:text-white transition-colors">
+                      {item.label}
+                    </a>
+                  ) : (
+                    <p key={item.label} className="text-yellow">{item.label}</p>
+                  )
+                })}
+              </div>  
+            ))}
+            {/* <div className="flex flex-col gap-4 text-sm">
               <a href="tel:+525551234567" className="text-yellow hover:text-white transition-colors">
                 +52 (555) 123-4567
               </a>
@@ -49,7 +65,7 @@ export const ContactPage = () => {
                 hola@tuposteria.com
               </a>
               <p className="text-yellow">Calle Principal #123, Centro</p>
-            </div>
+            </div> */}
             <div className="flex gap-2">
               <SocialLinks />
             </div>
