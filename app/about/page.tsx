@@ -7,7 +7,12 @@ import { Footer } from "@/components/Footer"
 import { Navbar } from "@/components/Navbar"
 import { TitlePage } from "@/components/ui/TitlePage"
 import { Titles } from "@/data/titles"
+import { Metadata } from "next"
 
+export const metadata: Metadata = {
+  title: "Sobre Nosotros",
+  description: "Conoce la historia detrás de Tu Postería, quiénes somos y nuestra pasión por los postres artesanales.",
+}
 
 export default function AboutUs() {
   return (
