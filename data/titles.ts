@@ -8,9 +8,9 @@ export const Titles: Record<string, TitleProps> = {
         title: "Acerca de nosotros :)",
         subtitle: "Aprenda quienes somos y para que elaboramos postres."
     },
-    events: {
-        title: "Nuestros Eventos",
-        subtitle: "Descubre los eventos especiales donde puedes disfrutar de nuestros postres."
+    locations: {
+        title: "Nuestras Ubicaciones",
+        subtitle: "Encuéntranos en estos lugares y ven a disfrutar de nuestros postres."
     },
     products: {
         title: "Nuestros Productos",

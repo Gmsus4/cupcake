@@ -113,4 +113,5 @@ export const products = [
   },
 ]
 
+export const categories = ["Todos", ...new Set(products.map(p => p.category))]
 export type Product = typeof products[number]

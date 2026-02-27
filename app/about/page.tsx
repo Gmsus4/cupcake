@@ -5,7 +5,7 @@ import { Images } from "@/components/about/Images"
 import { Title } from "@/components/about/Title"
 import { Footer } from "@/components/Footer"
 import { Navbar } from "@/components/Navbar"
-import { TitlePage } from "@/components/TitlePage"
+import { TitlePage } from "@/components/ui/TitlePage"
 import { Titles } from "@/data/titles"
 
 

@@ -13,8 +13,8 @@ export const navItems: NavItem[] = [
     icon: IconCake,
   },
   {
-    title: "Eventos",
-    href: "/events",
+    title: "Ubicación",
+    href: "/locations",
     icon: IconCalendarEvent,
   },  
   {

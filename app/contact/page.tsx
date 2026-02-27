@@ -1,6 +1,7 @@
+import { ContactPage } from "@/components/contact/Contact";
 import { Footer } from "@/components/Footer";
 import { Navbar } from "@/components/Navbar";
-import { TitlePage } from "@/components/TitlePage";
+import { TitlePage } from "@/components/ui/TitlePage";
 import { Titles } from "@/data/titles";
 
 export default function Contact(){
@@ -8,6 +9,7 @@ export default function Contact(){
         <>
             <Navbar />
             <TitlePage title={Titles.contact.title} subtitle={Titles.contact.subtitle}/>
+            <ContactPage />
             <Footer />
         </>
     )

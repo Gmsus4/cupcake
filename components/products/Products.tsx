@@ -1,5 +1,6 @@
 "use client"
-import { useState } from "react"
+import { useState, useEffect } from "react"
+import { useSearchParams, useRouter } from "next/navigation"
 import Link from "next/link"
 import { products } from "@/data/products"
 
@@ -13,8 +14,28 @@ const tagColors: Record<string, string> = {
 }
 
 export const ProductsComponent = () => {
-  const [active, setActive] = useState("Todos")
-  const [hovered, setHovered] = useState<number | null>(null)
+  const searchParams = useSearchParams()
+  const router = useRouter()
+
+  const categoryParam = searchParams.get("category")
+  const [active, setActive] = useState(
+    categories.includes(categoryParam ?? "") ? categoryParam! : "Todos"
+  )
+
+  // const [active, setActive] = useState("Todos")
+
+  const handleFilter = (cat: string) => {
+    setActive(cat)
+    const params = new URLSearchParams(searchParams.toString())
+    if (cat === "Todos") {
+      params.delete("category")
+    } else {
+      params.set("category", cat)
+    }
+    router.replace(`?${params.toString()}`, { scroll: false })
+  }
+
+  // const [hovered, setHovered] = useState<number | null>(null)
 
   const filtered = active === "Todos"
     ? products
@@ -135,7 +156,7 @@ export const ProductsComponent = () => {
             {categories.map((cat) => (
               <button
                 key={cat}
-                onClick={() => setActive(cat)}
+                onClick={() => handleFilter(cat)}
                 className={`filter-btn cursor-pointer text-xs font-semibold uppercase tracking-widest px-4 py-2 rounded-full border border-yellow/20 text-yellow/70 hover:border-yellow/50 hover:text-yellow ${active === cat ? "active" : ""}`}
               >
                 {cat}
@@ -151,8 +172,8 @@ export const ProductsComponent = () => {
                 href={`/products/${product.id}`} 
                 className="prod-card group relative flex flex-col rounded-2xl border border-yellow/10 hover:border-yellow/30 bg-yellow/5 hover:bg-yellow/8 overflow-hidden transition-colors duration-300"
                 style={{ animationDelay: `${idx * 0.07}s` }}
-                onMouseEnter={() => setHovered(product.id)}
-                onMouseLeave={() => setHovered(null)}
+                // onMouseEnter={() => setHovered(product.id)}
+                // onMouseLeave={() => setHovered(null)}
               >
                 {/* Imagen */}
                 <div className="relative overflow-hidden h-48 flex items-center justify-center bg-yellow/5">

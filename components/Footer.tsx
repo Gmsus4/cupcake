@@ -1,21 +1,22 @@
 import { navItems } from "@/data/navItems"
-import { socialMedia } from "@/data/socialMedia"
 import { IconCup } from "@tabler/icons-react"
 import Link from "next/link"
+import { SocialLinks } from "./ui/SocialLinks"
+import { categories } from "@/data/products"
 
 export const Footer = () => {
   return (
     <footer className="bg-pink w-full pb-10">
       <div className="max-w-6xl mx-auto px-6 sm:px-8 lg:px-12 pt-12 pb-6">
         {/* Bloque superior: logo + tagline a ancho completo */}
-        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-10 pb-8 border-b border-yellow/20">
+        <div className="flex flex-col sm:flex-row  sm:items-center sm:justify-between gap-4 mb-10 pb-8 border-b border-yellow/20">
           <div className="flex items-center gap-3">
             <div className="w-10 h-10 grid place-items-center bg-yellow rounded-full shrink-0 hover:scale-110 transition-transform duration-200">
               <Link href="/" className="text-pink">
                 <IconCup width={22} height={22} />
               </Link>
             </div>
-            <span className="text-yellow font-bold text-xl tracking-tight">ACME</span>
+            <span className="text-yellow mt-1 font-bold text-xl tracking-tight">ACME</span>
           </div>
           <p className="text-yellow/60 text-sm max-w-xs sm:text-right leading-relaxed">
             Providing reliable tech since 1992. <br className="hidden sm:block" />
@@ -43,14 +44,16 @@ export const Footer = () => {
 
           {/* Col 2 — Categorías */}
           <div className="flex flex-col gap-3">
-            <span className="text-[10px] uppercase tracking-[0.2em] text-yellow/90 font-semibold">Categorías</span>
+            <span className="text-[10px] uppercase tracking-[0.2em] text-yellow/90 font-semibold">Especialidades</span>
             <div className="flex flex-col gap-2">
-              {["Menú del día", "Postres", "Bebidas", "Especiales"].map((label, idx) => (
-                <Link key={idx} href="" className="group flex items-center gap-2 text-sm text-yellow font-medium hover:text-yellow transition-colors duration-150">
-                  <span className="w-0 group-hover:w-2 h-px bg-yellow transition-all duration-200 rounded-full" />
-                  {label}
-                </Link>
-              ))}
+              {
+                categories.slice(1).map((label, idx) => (
+                  <Link key={idx} href={`/products?category=${label}`} className="group flex items-center gap-2 text-sm text-yellow font-medium hover:text-yellow transition-colors duration-150">
+                    <span className="w-0 group-hover:w-2 h-px bg-yellow transition-all duration-200 rounded-full" />
+                    {label}
+                  </Link>
+                ))
+              }
             </div>
           </div>
 
@@ -70,20 +73,7 @@ export const Footer = () => {
           {/* Col 4 — Síguenos */}
           <div className="flex flex-col gap-3">
             <span className="text-[10px] uppercase tracking-[0.2em] text-yellow/90 font-semibold">Síguenos</span>
-            <div className="flex flex-wrap gap-2">
-              {socialMedia.map((item, idx) => {
-                const Icon = item.icon
-                return (
-                  <Link
-                    key={idx}
-                    href={item.href}
-                    className="w-9 h-9 grid place-items-center bg-yellow/10 hover:bg-yellow rounded-full text-yellow hover:text-pink transition-all duration-200 hover:scale-110"
-                  >
-                    <Icon width={18} height={18} />
-                  </Link>
-                )
-              })}
-            </div>
+            <SocialLinks />
 
             {/* Newsletter mini */}
             <div className="mt-2 flex flex-col gap-2">

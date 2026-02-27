@@ -3,6 +3,7 @@ import { notFound } from "next/navigation"
 import Link from "next/link"
 import { Navbar } from "@/components/Navbar"
 import { Footer } from "@/components/Footer"
+import { BackButton } from "@/components/ui/BackButton"
 
 export function generateStaticParams() {
   return products.map(p => ({ id: String(p.id) }))
@@ -97,13 +98,7 @@ export default async function ProductPage({ params }: { params: Promise<{ id: st
 
         <div className="relative max-w-6xl mx-auto px-6 sm:px-10 lg:px-20 py-12">
 
-          <Link
-            href="/products"
-            className="anim-back inline-flex items-center gap-2 text-yellow/90 hover:text-yellow text-sm mb-10 transition-colors duration-200 group"
-          >
-            <span className="group-hover:-translate-x-1 transition-transform duration-200">←</span>
-            Volver a productos
-          </Link>
+          <BackButton label="Volver a productos" />
 
           <div className="flex flex-col lg:flex-row gap-12 lg:gap-20 items-start">
 
