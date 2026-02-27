@@ -14,7 +14,7 @@ export const navItems: NavItem[] = [
   },
   {
     title: "Eventos",
-    href: "/sd",
+    href: "/events",
     icon: IconCalendarEvent,
   },  
   {

@@ -1,0 +1,14 @@
+import Link from "next/link"
+
+export const CTA = () => {
+  return (
+    <div className="about-cta flex flex-col xs:flex-row gap-3 pt-2">
+      <Link href="/menu" className="btn rounded-full bg-pink text-yellow shadow-none border-none hover:scale-105 transition-transform duration-200 px-7">
+        Ver nuestro menú
+      </Link>
+      <Link href="/contacto" className="btn rounded-full bg-transparent border-pink shadow-none text-pink hover:bg-pink/10 transition-colors duration-200 px-7">
+        Contáctanos
+      </Link>
+    </div>
+  )
+}
