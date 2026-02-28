@@ -112,7 +112,7 @@ export const ProductsComponent = () => {
         }
       `}</style>
 
-      <section className="relative bg-pink w-full overflow-hidden pb-10 px-6 sm:px-10 lg:px-20">
+      <section className="relative bg-pink w-full overflow-hidden pb-10 px-6 sm:px-10 lg:px-20 pt-10">
 
         {/* Fondo decorativo */}
         <div className="pointer-events-none absolute inset-0">

@@ -4,9 +4,9 @@ export const Events = () => {
   return (
     <>
     <div className="relative max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-10 min-h-[600px]">
-      <div className="grid gap-6">
+      <div className="grid gap-4">
         <div className="grid gap-4">
-            <h2 className="text-7xl text-pink font-caveat">Endulzamos Tus Momentos</h2>
+            <h2 className="text-5xl md:text-6xl text-pink font-caveat">Endulzamos Tus Momentos</h2>
             <p className="text-lg text-pink">Contamos con mesas de postres irresistibles y pasteles personalizados que convierten cualquier celebración en una experiencia memorable. Desde bodas soñadas hasta cumpleaños épicos, cada detalle está pensado para sorprender y deleitar.</p>
         </div>
         <div className="icons grid grid-cols-1 xs:grid-cols-2 place-items-center py-8 pb-0 xs:py-20">

@@ -7,6 +7,7 @@ import { Titles } from "@/data/titles";
 import { Events } from "@/components/products/Events";
 import { Suspense } from "react";
 import { Metadata } from "next";
+import { MarqueeStrip } from "@/components/ui/MarqueeStrip";
 
 // export const metadata: Metadata = {
 //   title: "Nuestros Productos — Tu Postería",

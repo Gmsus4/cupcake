@@ -16,7 +16,7 @@ export const Navbar = () => {
   };
 
   return (
-    <div className="navbar bg-pink fixed z-100">
+    <div className="navbar bg-pink fixed z-1000">
       <div className="max-w-7xl mx-auto w-full flex items-center justify-center">
         <div className="navbar-start lg:hidden">
           <div className="dropdown">

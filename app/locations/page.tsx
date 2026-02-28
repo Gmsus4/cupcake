@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   description: "Encuéntranos en nuestras sucursales y ven a disfrutar de nuestros postres artesanales.",
 }
 
-export default function Events() {
+export default function LocationsPage() {
     return (
         <>
             <Navbar />
