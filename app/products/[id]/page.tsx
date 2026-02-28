@@ -187,8 +187,8 @@ export default async function ProductPage({ params }: { params: Promise<{ id: st
                 ))}
               </div>
 
-              <div className="anim-btns flex flex-col items-center justify-between xs:flex-row gap-3 pt-2">
-                <div className="flex gap-4">
+              <div className="anim-btns gap-3 pt-2">
+                <div className="flex gap-4 flex-col lg:flex-row">
                   <Link href={socialMedia[0].href} target="_blank" className="btn rounded-full bg-yellow text-pink shadow-none border-none hover:scale-105 transition-transform duration-200 px-8">
                     Enviar DM por Instagram
                     <IconBrandInstagram size={18}/>
