@@ -16,14 +16,14 @@ interface Location {
 const locations: Location[] = [
   {
     id: 1,
-    name: "Sucursal Centro",
-    address: "Calle Principal #123, Centro, Ciudad",
-    phone: "+52 (555) 123-4567",
+    name: "Estadio 3 de Marzo",
+    address: "Av. Patria 1201, Uag, 45110 Zapopan, Jal.",
+    phone: "+52 (332) 236-4324",
     hours: "Lun–Sáb: 9:00am – 8:00pm",
-    image: "https://images.pexels.com/photos/8351453/pexels-photo-8351453.jpeg",
-    mapUrl: "https://maps.app.goo.gl/wcoYJp6ZSH7xRVvd6",
+    image: "https://cdn.milenio.com/uploads/media/2024/04/30/estadio-marzo-une-sedes-mundial.jpeg",
+    mapUrl: "https://maps.app.goo.gl/vzVeXZuMAfdURUFk8",
     embedUrl:
-      "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3729.755117406199!2d-104.00714751388698!3d20.801192646043845!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x84266bff3871bc73%3A0xdf72d554cbde4e1e!2sMercado%2047%2C%20Centro%2C%2046560%20San%20Juanito%20de%20Escobedo%2C%20Jal.%2C%20M%C3%A9xico!5e0!3m2!1ses-419!2sus!4v1772209138525!5m2!1ses-419!2sus",
+      "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3732.4048199609742!2d-103.42101651390193!3d20.693779649897476!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8428aef02189d57b%3A0x4dd9996d73ca3908!2sEstadio%203%20de%20Marzo!5e0!3m2!1ses!2smx!4v1772244958409!5m2!1ses!2smx",
   },
 ]
 
