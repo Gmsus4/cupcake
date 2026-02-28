@@ -16,7 +16,7 @@ export const Footer = () => {
                 <IconCup width={22} height={22} />
               </Link>
             </div>
-            <span className="text-yellow mt-1 font-bold text-xl tracking-tight">ACME</span>
+            <span className="text-yellow mt-1 font-bold text-xl tracking-tight">TAGB</span>
           </div>
           <p className="text-yellow text-sm max-w-xs sm:text-right leading-relaxed">
             Endulzando momentos desde 2010. <br className="hidden sm:block"/>Hecho con amor, entregado con dedicación.
@@ -97,18 +97,18 @@ export const Footer = () => {
 
         {/* Barra inferior */}
         <div className="mt-10 pt-5 border-t border-yellow/20 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 text-[11px] text-yellow">
-          <span>© {new Date().getFullYear()} ACME Industries Ltd. Todos los derechos reservados.</span>
-          <div className="flex gap-4">
+          <span>© {new Date().getFullYear()} TAGB Industries Ltd. Todos los derechos reservados.</span>
+          {/* <div className="flex gap-4">
             <Link href="/privacy" className="hover:text-yellow/70 text-yellow transition-colors">
               Privacidad
             </Link>
             <Link href="/terms" className="hover:text-yellow/70 text-yellow transition-colors">
               Términos
             </Link>
-            {/* <Link href="" className="hover:text-yellow/70 transition-colors">
+            <Link href="" className="hover:text-yellow/70 transition-colors">
               Cookies
-            </Link> */}
-          </div>
+            </Link>
+          </div> */}
         </div>
       </div>
     </footer>

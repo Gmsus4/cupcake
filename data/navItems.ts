@@ -36,7 +36,7 @@ export const navItems: NavItem[] = [
 
 export const otherLinks: otherLinks[] = [
   { title: "Recomendaciones generales", href: "/products#recomendaciones" },
-  { title: "Trabaja con nosotros", href: "/contact" },
-  { title: "Blog", href: "/blog" },
-  { title: "Contacto", href: "/contact" },
+  { title: "Términos y condiciones", href: "/terms" },
+  { title: "Privacidad", href: "/privacy" },
+  // { title: "Contacto", href: "/contact" },
 ]

@@ -74,10 +74,10 @@ export const Hero = () => {
             <p className="anim-subtitle font-medium text-yellow md:text-lg">Because great coffee is the start of something even greater.</p>
           </div>
           <div className="anim-buttons buttons w-full flex flex-col justify-center gap-2 xs:flex-row xs:gap-4">
-            <Link href={""} className="btn rounded-full bg-yellow text-pink shadow-none border-none hover:scale-105 transition-transform duration-200">
+            <Link href={"/contact"} className="btn rounded-full bg-yellow text-pink shadow-none border-none hover:scale-105 transition-transform duration-200">
               Agenda tu pedido
             </Link>
-            <Link href={""} className="btn rounded-full bg-pink border-yellow shadow-none text-yellow hover:bg-yellow/10 transition-colors duration-200">
+            <Link href={"/products"} className="btn rounded-full bg-pink border-yellow shadow-none text-yellow hover:bg-yellow/10 transition-colors duration-200">
               Explorar menú
             </Link>
           </div>

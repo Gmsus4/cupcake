@@ -40,7 +40,7 @@ export const Navbar = () => {
                 })}
             </ul>
           </div>
-          <a className="btn btn-ghost text-yellow text-xl">daisyUI</a>
+          <Link href={"/"} className="btn btn-ghost text-yellow text-xl mt-2">TAGB</Link>
         </div>
 
         <div className="navbar-center hidden lg:flex">

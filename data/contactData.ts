@@ -1,6 +1,7 @@
 export interface ContactItem {
   label: string
   href?: string
+  value?: string
 }
 
 export interface ContactInfo {
@@ -14,7 +15,7 @@ export const contactData: ContactInfo[] = [
     title: "Teléfono",
     prefix: "tel:",
     items: [
-      { label: "+52 (555) 123-4567" },
+      { label: "+52 (555) 123-4567", value: "523322364324" },
       // { label: "+52 (555) 987-6543" },
     ],
   },

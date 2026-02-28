@@ -222,7 +222,7 @@ export const ProductsComponent = () => {
               ¿No encuentras lo que buscas? Hacemos pedidos especiales.
             </p>
             <Link
-              href="/contacto"
+              href="/contact"
               className="btn rounded-full bg-yellow text-pink shadow-none border-none hover:scale-105 transition-transform duration-200 px-7 text-sm"
             >
               Pedir personalizado

@@ -6,12 +6,15 @@ import { Footer } from "@/components/Footer"
 import { BackButton } from "@/components/ui/BackButton"
 
 import type { Metadata } from "next"
+import { ShareButton } from "@/components/ui/ShareButton"
+import { IconBrandInstagram, IconBrandWhatsapp, IconSend, IconSend2 } from "@tabler/icons-react"
+import { socialMedia } from "@/data/socialMedia"
+import { WhatsAppOrderButton } from "@/components/ui/WhatsAppOrderButton"
+import { contactData } from "@/data/contactData"
 
-export async function generateMetadata(
-  { params }: { params: Promise<{ id: string }> }
-): Promise<Metadata> {
+export async function generateMetadata({ params }: { params: Promise<{ id: string }> }): Promise<Metadata> {
   const { id } = await params
-  const product = products.find(p => p.id === Number(id))
+  const product = products.find((p) => p.id === Number(id))
   if (!product) return {}
 
   return {
@@ -27,7 +30,7 @@ export async function generateMetadata(
           width: 1200,
           height: 630,
           alt: product.name,
-        }
+        },
       ],
       type: "website",
       locale: "es_MX",
@@ -42,24 +45,22 @@ export async function generateMetadata(
 }
 
 export function generateStaticParams() {
-  return products.map(p => ({ id: String(p.id) }))
+  return products.map((p) => ({ id: String(p.id) }))
 }
 
 const tagColors: Record<string, string> = {
-  "Firma":     "bg-yellow text-pink",
-  "Popular":   "bg-yellow/20 text-yellow border border-yellow/40",
-  "Nuevo":     "bg-pink border border-yellow text-yellow",
-  "Temporada": "bg-yellow/10 text-yellow border border-yellow/30",
+  Firma: "bg-yellow text-pink",
+  Popular: "bg-yellow/20 text-yellow border border-yellow/40",
+  Nuevo: "bg-pink border border-yellow text-yellow",
+  Temporada: "bg-yellow/10 text-yellow border border-yellow/30",
 }
 
 export default async function ProductPage({ params }: { params: Promise<{ id: string }> }) {
   const { id } = await params
-  const product = products.find(p => p.id === Number(id))
+  const product = products.find((p) => p.id === Number(id))
   if (!product) notFound()
 
-  const related = products
-    .filter(p => p.category === product.category && p.id !== product.id)
-    .slice(0, 3)
+  const related = products.filter((p) => p.category === product.category && p.id !== product.id).slice(0, 3)
 
   return (
     <>
@@ -118,7 +119,6 @@ export default async function ProductPage({ params }: { params: Promise<{ id: st
 
       <Navbar />
       <main className="relative bg-pink min-h-screen w-full overflow-hidden pt-10">
-
         <div className="pointer-events-none absolute inset-0">
           <div className="absolute top-0 right-0 w-96 h-96 rounded-full bg-yellow/5 blur-3xl" />
           <div className="absolute bottom-1/3 left-0 w-72 h-72 rounded-full bg-yellow/6 blur-3xl" />
@@ -133,136 +133,93 @@ export default async function ProductPage({ params }: { params: Promise<{ id: st
         </div>
 
         <div className="relative max-w-6xl mx-auto px-6 sm:px-10 lg:px-20 py-12">
-
           <BackButton label="Volver a productos" />
 
           <div className="flex flex-col lg:flex-row gap-12 lg:gap-20 items-start">
-
             <div className="w-full lg:w-2/5 flex items-center justify-center">
               <div className="relative">
+               <ShareButton title={product.name} description={product.desc} />
                 <div className="absolute inset-0 rounded-full bg-yellow/10 blur-3xl scale-75" />
-                <img
-                  src={product.img}
-                  alt={product.name}
-                  className="anim-img relative z-10 w-64 sm:w-80 lg:w-full max-w-xs drop-shadow-2xl"
-                />
+                <img src={product.img} alt={product.name} className="anim-img relative z-10 w-64 sm:w-80 lg:w-full max-w-xs drop-shadow-2xl" />
               </div>
             </div>
 
             <div className="flex-1 flex flex-col gap-6">
-
               <div className="anim-tag flex items-center gap-2 flex-wrap">
-                <span className="text-[10px] uppercase tracking-[0.25em] text-yellow/80 font-semibold">
-                  {product.category}
-                </span>
+                <span className="text-[10px] uppercase tracking-[0.25em] text-yellow/80 font-semibold">{product.category}</span>
                 {product.tag && (
                   <>
                     <span className="text-yellow/20">·</span>
-                    <span className={`text-[9px] font-bold uppercase tracking-widest px-2.5 py-1 rounded-full ${tagColors[product.tag]}`}>
-                      {product.tag}
-                    </span>
+                    <span className={`text-[9px] font-bold uppercase tracking-widest px-2.5 py-1 rounded-full ${tagColors[product.tag]}`}>{product.tag}</span>
                   </>
                 )}
               </div>
 
-              <h1 className="anim-title font-caveat text-5xl sm:text-6xl lg:text-7xl text-yellow leading-tight">
-                {product.name}
-              </h1>
+              <h1 className="anim-title font-caveat text-5xl sm:text-6xl lg:text-7xl text-yellow leading-tight">{product.name}</h1>
 
               <div className="anim-price flex items-baseline gap-1">
-                <span className="shimmer-price font-caveat text-4xl font-bold">
-                  ${product.price}
-                </span>
+                <span className="shimmer-price font-caveat text-4xl font-bold">${product.price}</span>
                 <span className="text-yellow/80 text-sm">MXN</span>
               </div>
 
               <div className="h-px w-full bg-yellow/15" />
 
-              <p className="anim-desc text-yellow/90 text-sm sm:text-base leading-relaxed">
-                {product.descLong}
-              </p>
+              <p className="anim-desc text-yellow/90 text-sm sm:text-base leading-relaxed">{product.descLong}</p>
 
               <div className="anim-meta grid grid-cols-1 sm:grid-cols-3 gap-4">
                 {[
-                  { label: "Presentación",     value: product.weight },
+                  { label: "Presentación", value: product.weight },
                   { label: "Tiempo de pedido", value: product.prepTime },
-                  { label: "Alérgenos",        value: product.allergens.join(", ") },
-                ].map(item => (
-                  <div
-                    key={item.label}
-                    className="flex flex-col gap-1 p-3 rounded-xl border border-yellow/10 bg-yellow/5"
-                  >
-                    <span className="text-[9px] uppercase tracking-widest text-yellow/90 font-semibold">
-                      {item.label}
-                    </span>
-                    <span className="text-yellow/80 text-xs font-medium">
-                      {item.value}
-                    </span>
+                  { label: "Alérgenos", value: product.allergens.join(", ") },
+                ].map((item) => (
+                  <div key={item.label} className="flex flex-col gap-1 p-3 rounded-xl border border-yellow/10 bg-yellow/5">
+                    <span className="text-[9px] uppercase tracking-widest text-yellow/90 font-semibold">{item.label}</span>
+                    <span className="text-yellow/80 text-xs font-medium">{item.value}</span>
                   </div>
                 ))}
               </div>
 
               <div className="anim-meta flex flex-wrap gap-2">
-                {product.ingredients.map(ing => (
-                  <span
-                    key={ing}
-                    className="text-[10px] text-yellow/80 border border-yellow/15 rounded-full px-3 py-1"
-                  >
+                {product.ingredients.map((ing) => (
+                  <span key={ing} className="text-[10px] text-yellow/80 border border-yellow/15 rounded-full px-3 py-1">
                     {ing}
                   </span>
                 ))}
               </div>
 
-              <div className="anim-btns flex flex-col xs:flex-row gap-3 pt-2">
-                <Link
-                  href="/contact"
-                  className="btn rounded-full bg-yellow text-pink shadow-none border-none hover:scale-105 transition-transform duration-200 px-8"
-                >
-                  Agendar pedido
-                </Link>
-                <Link
-                  href="/products"
-                  className="btn rounded-full bg-transparent border-yellow shadow-none text-yellow hover:bg-yellow/10 transition-colors duration-200 px-8"
-                >
-                  Ver más productos
-                </Link>
+              <div className="anim-btns flex flex-col items-center justify-between xs:flex-row gap-3 pt-2">
+                <div className="flex gap-4">
+                  <Link href={socialMedia[0].href} target="_blank" className="btn rounded-full bg-yellow text-pink shadow-none border-none hover:scale-105 transition-transform duration-200 px-8">
+                    Enviar DM por Instagram
+                    <IconBrandInstagram size={18}/>
+                  </Link>
+                  <WhatsAppOrderButton phone={contactData[0].items[0].value ?? ""}/>
+                </div>
               </div>
-
             </div>
           </div>
 
           {related.length > 0 && (
             <div className="mt-20 pt-10 border-t border-yellow/20">
-              <div
-                className="flex items-center gap-3 mb-8"
-                style={{ animation: "fadeUp 0.6s cubic-bezier(.22,1,.36,1) 0.2s both" }}
-              >
+              <div className="flex items-center gap-3 mb-8" style={{ animation: "fadeUp 0.6s cubic-bezier(.22,1,.36,1) 0.2s both" }}>
                 <span className="h-px w-8 bg-yellow/50" />
                 <h2 className="font-caveat text-3xl text-yellow">También te puede gustar</h2>
               </div>
               <div className="grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-3 gap-5">
-                {related.map(rel => (
+                {related.map((rel) => (
                   <Link
                     key={rel.id}
                     href={`/products/${rel.id}`}
                     className="rel-card group flex flex-col rounded-2xl border border-yellow/10 hover:border-yellow/30 bg-yellow/5 hover:bg-yellow/8 overflow-hidden transition-colors duration-300"
                   >
                     <div className="h-40 flex items-center justify-center bg-yellow/5 overflow-hidden">
-                      <img
-                        src={rel.img}
-                        alt={rel.name}
-                        className="h-32 w-auto object-contain drop-shadow-lg group-hover:scale-110 transition-transform duration-500"
-                      />
+                      <img src={rel.img} alt={rel.name} className="h-32 w-auto object-contain drop-shadow-lg group-hover:scale-110 transition-transform duration-500" />
                     </div>
                     <div className="p-4 flex flex-col gap-1">
                       <h3 className="font-caveat text-xl text-yellow">{rel.name}</h3>
                       <div className="flex items-center justify-between">
-                        <span className="text-[10px] uppercase tracking-widest text-yellow/40">
-                          {rel.category}
-                        </span>
-                        <span className="shimmer-price font-caveat text-lg font-bold">
-                          ${rel.price}
-                        </span>
+                        <span className="text-[10px] uppercase tracking-widest text-yellow/40">{rel.category}</span>
+                        <span className="shimmer-price font-caveat text-lg font-bold">${rel.price}</span>
                       </div>
                     </div>
                   </Link>
@@ -270,7 +227,6 @@ export default async function ProductPage({ params }: { params: Promise<{ id: st
               </div>
             </div>
           )}
-
         </div>
       </main>
       <Footer />
