@@ -21,7 +21,7 @@ export const Navbar = () => {
       <div className="max-w-7xl mx-auto w-full flex items-center justify-center">
         <div className="navbar-start lg:hidden">
           <div className="dropdown">
-            <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden text-yellow hover:bg-yellow/10 transition-colors">
+            <div tabIndex={0} role="button" className="btn btn-ghost px-0 lg:hidden text-yellow hover:bg-yellow/10 transition-colors">
               <IconMenu2 size={40}/>
             </div>
 
