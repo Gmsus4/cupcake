@@ -25,7 +25,7 @@ export const Navbar = () => {
               <IconMenu2 size={40}/>
             </div>
 
-            <ul tabIndex={-1} className="menu dropdown-content z-50 mt-3 w-64 p-3 shadow-2xl rounded-2xl bg-yellow border border-pink/10 flex flex-col gap-1">
+            <ul tabIndex={-1} className="menu dropdown-content z-[999] mt-3 w-64 p-3 shadow-2xl rounded-2xl bg-yellow border border-pink/10">
               {navItems.map((item, idx) => {
                 const Icon = item.icon
                 return (
